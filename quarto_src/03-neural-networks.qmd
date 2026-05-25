@@ -587,7 +587,7 @@ rows = math.ceil(len(configs) / cols)
 labels = list(configs.keys())
 fig2 = make_subplots(rows=rows, cols=cols, subplot_titles=labels)
 
-grid_all = np.vstack([X_train, X_test])
+grid_all = np.vstack([X_train_sub, X_test])
 x_min, x_max = grid_all[:, 0].min() - 0.5, grid_all[:, 0].max() + 0.5
 y_min, y_max = grid_all[:, 1].min() - 0.5, grid_all[:, 1].max() + 0.5
 xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.05), np.arange(y_min, y_max, 0.05))

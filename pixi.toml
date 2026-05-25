@@ -1,7 +1,7 @@
 [workspace]
 name = "mltutorials"
 channels = ["conda-forge"]
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-arm64"]
 
 [dependencies]
 python = ">=3.12.0,<3.13"
@@ -16,6 +16,9 @@ pillow = "*"
 scikit-learn = "*"
 plotly = ">=6.6.0,<7"
 anywidget = ">=0.11.0,<0.12"
+
+[feature.manim.dependencies]
+manim = ">=0.20.1,<0.21"
 
 
 # Default (CPU / generic) torch 
@@ -44,6 +47,7 @@ quarto = "*"
 default = ["torch"]
 local-amd = ["rocm"]
 quarto = ["quarto"]
+manim = ["manim", "torch"]
 
 [tasks.render]
 cmd = "make"

@@ -130,9 +130,9 @@ def print_metrics(**splits):
         print(f"{k:<14}" + "".join(f"{results[n][k]:>{col_w}.3f}" for n in results))
 ```
 
-## 1 – The Dataset
+## 1 - The Dataset
 
-We will use toy 2D datasets from scikit-learn so we can visualise both the data and the decision boundary. Four datasets are available here — feel free to switch between them throughout the lab.
+We will use toy 2D datasets from scikit-learn so we can visualise both the data and the decision boundary. Four datasets are available here - feel free to switch between them throughout the lab.
 
 | Name | Shape | Why interesting |
 |------|-------|-----------------|
@@ -169,7 +169,7 @@ for name in dataset_names:
 scatter2d(*dataset_tuples).show()
 ```
 
-## 2 – Data sampling
+## 2 - Data sampling
 
 In machine learning, we use data to learn a model that can classify new unseen data. To do that we need training data. To keep track of how well our model is doing, we also need data to test the model on. The most common approach is to split the available data into a training set and a test set.
 
@@ -219,11 +219,11 @@ def _subsample(X, y, size, strategy, rng):
 subsample_size = 500
 
 # Sampling strategy for the training subset.
-# "random"          – uniform random draw (baseline)
-# "missing-region"  – probability is zero in a circular region at the center, so training data has a gap
-# "axis-imbalanced" – probability decays exponentially along the x-axis,
+# "random"          - uniform random draw (baseline)
+# "missing-region"  - probability is zero in a circular region at the center, so training data has a gap
+# "axis-imbalanced" - probability decays exponentially along the x-axis,
 #                     so training data is spatially skewed (simulates covariate shift)
-# "class-imbalanced"– one class is sampled ~10× more often than the other
+# "class-imbalanced"- one class is sampled ~10× more often than the other
 sampling_strategy = "class-imbalanced"
 subsample_rng = np.random.default_rng(RANDOM_STATE)
 subsample_indices = _subsample(population_X, population_y, subsample_size, sampling_strategy, subsample_rng)
@@ -296,7 +296,7 @@ scatter2d(
 ```
 
 
-## 4 – Machine learning
+## 4 - Machine learning
 
 We will now train two different models on our training dataset and see how they solve the problem. Even though we only show them a specific set of datapoints, they learn to classify the whole space and we can visualize how they divide the space into different classes with a *decision boundary*. We will evaluate performance using several metrics:
 
@@ -564,8 +564,8 @@ print_metrics(
 |---------|-------------|
 | Data size | More data generally reduces overfitting and improves generalisation. The amount of data needed depends on the complexity of the problem and the model. |
 | Train/dev/test split | Training set is used to train the model, development (validation)set is used for hyperparameter tuning, and test set is used for final evaluation as a proxy for the unknown population |
-| Overfitting | High train, low development accuracy/F1/AUC — model too complex or too little data |
-| Underfitting | Low train and development accuracy — model too simple |
+| Overfitting | High train, low development accuracy/F1/AUC - model too complex or too little data |
+| Underfitting | Low train and development accuracy - model too simple |
 | Class imbalance | Accuracy can be misleadingly high; prefer sensitivity, specificity, F1, and ROC AUC |
 | Hyper parameters | Control the learning process and model capacity; tuned using the development set |
 | Sampling bias | Skewed training data leads to skewed decision boundaries |
